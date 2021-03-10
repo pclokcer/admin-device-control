@@ -6,6 +6,6 @@ const port = process.env.API_PORT;
 
 const server = http.createServer(app);
 
-server.listen(88);
+server.listen(port);
 
 console.log("Admin is Working!\nListening Port " + port);
