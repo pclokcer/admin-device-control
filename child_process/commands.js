@@ -13,7 +13,7 @@ module.exports = {
                 }
             });
             wait.on("close", function (code, signal) {
-                resolve("Finish")
+                resolve(true)
             })
         })
         return data
