@@ -8,4 +8,4 @@ const server = http.createServer(app);
 
 server.listen(88);
 
-console.log("API is Working!\nListening Port " + port);
+console.log("Admin is Working!\nListening Port " + port);

@@ -9,6 +9,6 @@ const control = require('../controller/index');
 /**
  * Requests
  */
-router.get('/update-modebus', control.update)
+router.get('/update-modbus', control.update)
 
 module.exports = router;
