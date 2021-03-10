@@ -1,17 +1,20 @@
 const exec = require('./index')
 
 module.exports = {
-    updateAdmin() {
-        exec("pm2 start app.js", (error, stdout, stderr) => {
-            if (error) {
-                console.log(`error: ${error.message}`);
-                return;
-            }
-            if (stderr) {
-                console.log(`stderr: ${stderr}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-        });
+    async updateModbus() {
+        return await new Promise((resolve, reject) => {
+            const wait = exec("make update_Modbus", (error, stdout, stderr) => {
+                if (error) {
+                    console.log(`error: ${error.message}`);
+                    return reject(false);
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                }
+            });
+            wait.on("exit", function (code, signal) {
+                resolve(true)
+            })
+        })
     }
 }

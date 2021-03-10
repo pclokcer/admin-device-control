@@ -1,6 +1,11 @@
+const exec = require('../../child_process/commands')
+
 /**
  * Update
  */
 exports.update = async (req, res, next) => {
-    return res.status(200).json("rows")
+    let status = await exec.updateModbus();
+    if (status == true)
+        return res.status(200).json({ message: "Modbus Güncellendi" })
+    return res.status(200).json({ message: "Modbus Güncellemede Hata Oluştu" })
 }
