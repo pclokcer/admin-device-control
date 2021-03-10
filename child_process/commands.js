@@ -12,7 +12,7 @@ module.exports = {
                     console.log(`stderr: ${stderr}`);
                 }
             });
-            wait.on("exit", resolve(true))
+            wait.on("close", resolve(true))
         })
     }
 }
